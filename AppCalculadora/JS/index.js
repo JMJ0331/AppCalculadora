@@ -1,22 +1,80 @@
 // Colores de la calculadora
 const cuerpo = document.getElementById('cuerpo');
 const calculadoraSliderPanel = document.getElementById('calculadora-slider-panel');
-const inputBColor = document.getElementById('input');
-const inputColor = document.getElementById('input');
+const input = document.getElementById('input');
 const calCuerpo = document.getElementById('calculadora-cuerpo');
 const botones = document.querySelectorAll('.botonesNumero');
 const textos = document.querySelectorAll('#calculadora-opciones');
 calCuerpo.style.visibility = 'hidden';
 
-// DEL
+botones.forEach(boton => {
+    boton.addEventListener('click', () => {
+        const botonApretado = boton.textContent;
+
+        if (boton.id === 'sigDel') {
+            if (input.value.length === 1 || input.value === 'ERROR') {
+                input.value = '0';
+            } else {
+                input.value = input.value.slice(0, -1);
+            }
+            return;
+        }
+
+        if (boton.id === 'sigReset') {
+            input.value = '0';
+            return;
+        }
+
+        if (boton.id === 'sigMas') {
+            input.value = input.value + '+';
+            return;
+        }
+
+        if (boton.id === 'sigMenos') {
+            input.value = input.value + '-';
+            return;
+        }
+
+        if (boton.id === 'sigPor') {
+            input.value = input.value + '*';
+            return;
+        }
+
+        if (boton.id === 'sigDiv') {
+            input.value = input.value + '/';
+            return;
+        }
+
+        if (boton.id === 'sigIgual') {
+            try {
+                input.value = eval(input.value);
+            } catch {
+                input.value = 'ERROR';
+            }
+            return;
+        }
+
+        if (input.value === '0' || input.value === 'ERROR') {
+            input.value = botonApretado;
+            return;
+        } else {
+            input.value += botonApretado;
+        }
+    })
+})
+
+// Operaciones
 const delBoton = document.getElementById('sigDel');
 const resetBoton = document.getElementById('sigReset');
 const igualBoton = document.getElementById('sigIgual');
+const sigSuma = document.getElementById('sigMas');
+const sigMenos = document.getElementById('sigMenos');
+const sigPor = document.getElementById('sigPor');
 
 // Variables
-let primerEstilo = document.getElementById('temaPrimario');
-let segundoEstilo = document.getElementById('temaSecundario');
-let tercerEstilo = document.getElementById('temaTerciario');
+const primerEstilo = document.getElementById('temaPrimario');
+const segundoEstilo = document.getElementById('temaSecundario');
+const tercerEstilo = document.getElementById('temaTerciario');
 
 // Index
 let index = 0;
@@ -39,7 +97,6 @@ tercerEstilo.addEventListener('click', function () {
     toggleSelector();
 });
 
-
 function toggleSelector() {
     if (index === 1) {
         calCuerpo.style.visibility = 'visible';
@@ -50,8 +107,8 @@ function toggleSelector() {
 
         cuerpo.style.backgroundColor = '#3B4664';
         calculadoraSliderPanel.style.backgroundColor = '#252D44';
-        inputBColor.style.backgroundColor = '#181F32';
-        inputColor.style.color = '#FFFFFF';
+        input.style.backgroundColor = '#181F32';
+        input.style.color = '#FFFFFF';
         calCuerpo.style.backgroundColor = '#252D44';
         botones.forEach(function (boton) {
             boton.style.backgroundColor = '#EAE3DB';
@@ -79,8 +136,8 @@ function toggleSelector() {
 
         cuerpo.style.backgroundColor = '#E6E6E6';
         calculadoraSliderPanel.style.backgroundColor = '#D2CDCE';
-        inputBColor.style.backgroundColor = '#EEEEEE';
-        inputColor.style.color = '#35352D';
+        input.style.backgroundColor = '#EEEEEE';
+        input.style.color = '#35352D';
         calCuerpo.style.backgroundColor = '#D3CDCD';
         botones.forEach(function (boton) {
             boton.style.backgroundColor = '#E5E4E0';
@@ -108,8 +165,8 @@ function toggleSelector() {
 
         cuerpo.style.backgroundColor = '#17062A';
         calculadoraSliderPanel.style.backgroundColor = '#1E0836';
-        inputBColor.style.backgroundColor = '#1E0836';
-        inputColor.style.color = '#FBE339';
+        input.style.backgroundColor = '#1E0836';
+        input.style.color = '#FBE339';
         calCuerpo.style.backgroundColor = '#1E0836';
         botones.forEach(function (boton) {
             boton.style.backgroundColor = '#331B4D';
@@ -130,3 +187,4 @@ function toggleSelector() {
         igualBoton.style.color = '#35352D';
     }
 }
+
