@@ -71,6 +71,7 @@ function toggleSelector() {
         igualBoton.style.color = '#FFFFFF';
         igualBoton.style.borderBottom = '2px solid #8F2316';
     } else if (index === 2) {
+        calCuerpo.style.visibility = 'visible';
         temaPrimario.style.backgroundColor = 'transparent';
         temaSecundario.style.backgroundColor = '#CC412F';
         temaTerciario.style.backgroundColor = 'transparent';
@@ -99,6 +100,7 @@ function toggleSelector() {
         igualBoton.style.borderBottom = '2px solid #873B01';
         igualBoton.style.color = '#FFFFFF';
     } else if (index === 3) {
+        calCuerpo.style.visibility = 'visible';
         temaPrimario.style.backgroundColor = 'transparent';
         temaSecundario.style.backgroundColor = 'transparent';
         temaTerciario.style.backgroundColor = '#6EFAF1';
