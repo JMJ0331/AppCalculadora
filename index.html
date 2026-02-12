@@ -5,26 +5,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="AppCalculadora/CSS/style.css">
+  <link rel="shortcut icon" href="AppCalculadora/images/calculator-icon.svg" type="image/x-icon">
   <title>Calculadora</title>
 </head>
 
-<body>
+<body class="cuerpo" id="cuerpo">
   <div class="calculadora-contenedor">
     <!-- Cabeza inicio -->
     <div class="calculadora-opciones">
-      <h1>calc</h1>
+      <h1 id="calculadora-opciones">calc</h1>
       <div class="calculadora-colores">
-        <h2>theme</h2>
+        <h2 id="calculadora-opciones">theme</h2>
         <div class="calculadora-slider-opciones">
           <div class="calculadora-numeros-opciones">
-            <p>1</p>
-            <p>2</p>
-            <p>3</p>
+            <p id="calculadora-opciones">1</p>
+            <p id="calculadora-opciones">2</p>
+            <p id="calculadora-opciones">3</p>
           </div>
-          <div class="calculadora-slider-panel">
-            <div class="calculadora-slider-botones"><button class="calculadora-punto-naranja temaPrimario"></button></div>
-            <div class="calculadora-slider-botones"><button class="calculadora-punto-naranja temaSecundario"></button></div>
-            <div class="calculadora-slider-botones"><button class="calculadora-punto-naranja temaTerciario"></button></div>
+          <div class="calculadora-slider-panel" id="calculadora-slider-panel">
+            <span class="calculadora-slider-botones">
+              <button class="calculadora-punto-naranja" id="temaPrimario"></button>
+            </span>
+            <span class="calculadora-slider-botones">
+              <button class="calculadora-punto-naranja" id="temaSecundario"></button>
+            </span>
+            <span class="calculadora-slider-botones">
+              <button class="calculadora-punto-naranja" id="temaTerciario"></button>
+            </span>
           </div>
         </div>
       </div>
@@ -33,11 +40,11 @@
 
     <!-- Panel de escritura inicio -->
     <div class="calculadora-panel-escritura">
-      <input type="number" readonly disabled>
+      <input type="number" readonly disabled id="input">
     </div>
     <!-- Panel de escritura fin -->
 
-    <div class="calculadora-cuerpo">
+    <div class="calculadora-cuerpo" id="calculadora-cuerpo">
       <button class="botonesNumero sigUno">1</button>
       <button class="botonesNumero sigDos">2</button>
       <button class="botonesNumero sigTres">3</button>
@@ -50,12 +57,12 @@
       <button class="botonesNumero sigCero">0</button>
       <button class="botonesNumero sigPunto">.</button>
       <button class="botonesNumero sigDiv">/</button>
-      <button class="botonesNumero sigDel">Del</button>
+      <button class="botonesNumero sigDel" id="sigDel">Del</button>
       <button class="botonesNumero sigMas">+</button>
       <button class="botonesNumero sigMenos">-</button>
       <button class="botonesNumero sigPor">x</button>
-      <button class="botonesNumero sigReset">Reset</button>
-      <button class="botonesNumero sigIgual">=</button>
+      <button class="botonesNumero sigReset" id="sigReset">Reset</button>
+      <button class="botonesNumero sigIgual" id="sigIgual">=</button>
     </div>
   </div>
   <script src="AppCalculadora/JS/index.js"></script>
